@@ -30,8 +30,7 @@ def create_windows_launcher():
     # Create batch file content
     batch_content = f"""@echo off
 cd /d "{script_dir}"
-python random_video_picker.py
-pause
+start /MIN pythonw random_video_picker.py
 """
     
     # Try to create on desktop first
