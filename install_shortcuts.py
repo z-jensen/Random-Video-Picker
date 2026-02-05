@@ -25,9 +25,21 @@ def create_windows_shortcuts():
         from win32com.client import Dispatch
     except ImportError:
         print("Installing required packages for Windows shortcuts...")
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "winshell pywin32"])
-        import winshell
-        from win32com.client import Dispatch
+        try:
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "winshell pywin32"])
+        except subprocess.CalledProcessError:
+            print("Failed to install winshell/pywin32. Creating batch script instead...")
+            create_batch_shortcut_script()
+            return
+        
+        # Try importing again
+        try:
+            import winshell
+            from win32com.client import Dispatch
+        except ImportError:
+            print("Still unable to import winshell. Creating batch script instead...")
+            create_batch_shortcut_script()
+            return
     
     python_exe = get_python_executable()
     script_dir = get_script_directory()
@@ -67,6 +79,26 @@ def create_windows_shortcuts():
     print(f"✅ Windows shortcuts created:")
     print(f"   Desktop: {path}")
     print(f"   Start Menu: {start_path}")
+
+def create_batch_shortcut_script():
+    """Create a simple batch script as fallback for Windows shortcuts"""
+    script_dir = get_script_directory()
+    python_exe = get_python_executable()
+    target_script = os.path.join(script_dir, "random_video_picker.py")
+    
+    batch_script = f"""@echo off
+cd /d "{script_dir}"
+"{python_exe}" "{target_script}"
+pause
+"""
+    
+    # Create on desktop
+    desktop = os.path.join(os.path.expanduser("~"), "Desktop", "Random Video Picker.bat")
+    with open(desktop, "w", encoding="utf-8") as f:
+        f.write(batch_script)
+    
+    print(f"✅ Created desktop batch script: {desktop}")
+    print("   Double-click this file to launch Random Video Picker")
 
 def create_macos_shortcuts():
     """Create macOS Applications folder shortcut and dock option"""
