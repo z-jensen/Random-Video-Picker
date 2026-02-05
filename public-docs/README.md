@@ -4,16 +4,37 @@ A simple, cross-platform desktop application that randomly selects and plays vid
 
 ## Features
 
-- **Random Video Selection**: Pick videos from any folder with a single click
-- **Progress Tracking**: Never watch the same video twice in a session
+- **Simple Core Functionality**: Choose folder, pick random video
+- **Session Management**: Track played videos to avoid repeats
+- **Optimized Video Preview**: Background thumbnails and detailed information
 - **Cross-Platform**: Works on Windows, macOS, and Linux
+- **Desktop Shortcuts**: Install to desktop/start menu easily
+- **Keyboard Shortcuts**: Spacebar plays random video
+- **Smart UI Layout**: Progressive disclosure with advanced features
+- **Interactive Recent Videos**: Double-click to replay
+- **Background Scanning**: No UI freeze on large folders
+- **Fast Thumbnails**: Quick 20-second seek preview generation
 - **Portable Mode**: Run from USB drives without installation
-- **Keyboard Shortcuts**: Press spacebar to quickly pick and play videos
 
 ## Quick Start
 
 ### Installation
 
+**Option 1: Standalone Executable (Recommended)**
+```bash
+# Clone the repository
+git clone https://github.com/z-jensen/Random-Video-Picker.git
+cd random-video-picker
+
+# Build standalone executable (no Python required)
+python build_executable.py
+
+# Create desktop shortcuts
+# Windows: .\create_shortcuts.bat
+# macOS/Linux: ./create_shortcuts.sh
+```
+
+**Option 2: Python Package**
 ```bash
 # Clone the repository
 git clone https://github.com/z-jensen/Random-Video-Picker.git
@@ -22,6 +43,9 @@ cd random-video-picker
 # Install dependencies
 pip install -r requirements.txt
 
+# Create desktop/start menu shortcuts
+python install_shortcuts.py
+
 # Run the application
 python3 random_video_picker.py
 ```
@@ -29,7 +53,7 @@ python3 random_video_picker.py
 ### Requirements
 
 ### Core Dependencies
-- Python 3.12+
+- Python 3.9+
 - tkinter (included with most Python installations)
 
 ### Optional Dependencies (for enhanced features)
@@ -39,20 +63,7 @@ python3 random_video_picker.py
 Install optional dependencies with:
 ```bash
 pip install -r requirements.txt  # Includes all optional dependencies
-```
-
-## Requirements
-
-### Core Dependencies
-- Python 3.7+
-- tkinter (included with most Python installations)
-
-### Optional Dependencies (for enhanced features)
-- FFmpeg (for video thumbnails and metadata)
-- Pillow (for image processing)
-
-Install optional dependencies with:
-```bash
+# or
 python3 install_deps.py
 ```
 

@@ -76,6 +76,8 @@ random-video-picker/
 ├── video_player.py           # Cross-platform video playback
 ├── video_preview.py          # Thumbnail and metadata extraction
 ├── install_deps.py           # Dependency installation script
+├── build_executable.py       # Build standalone executables
+├── install_shortcuts.py      # Create desktop/start menu shortcuts
 ├── setup.py                  # Package configuration
 ├── requirements.txt          # Dependencies
 └── tests/                    # Test files (when implemented)

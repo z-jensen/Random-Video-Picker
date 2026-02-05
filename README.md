@@ -27,7 +27,37 @@ A simple, cross-platform desktop application for randomly selecting and playing 
 
 ### Installation
 
-**Option 1: Direct Download**
+**Option 1: Standalone Executable (Recommended for End Users)**
+```bash
+# Clone or download the repository
+git clone https://github.com/z-jensen/Random-Video-Picker.git
+cd random-video-picker
+
+# Build standalone executable (no Python required for users)
+python build_executable.py
+
+# Create desktop/start menu shortcuts
+# Windows: .\create_shortcuts.bat
+# macOS/Linux: ./create_shortcuts.sh
+```
+
+**Option 2: Python Package with Shortcuts**
+```bash
+# Clone or download the repository
+git clone https://github.com/z-jensen/Random-Video-Picker.git
+cd random-video-picker
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Create desktop/start menu shortcuts automatically
+python install_shortcuts.py
+
+# Run the app
+python3 random_video_picker.py
+```
+
+**Option 3: Manual Python Installation**
 ```bash
 # Clone or download the repository
 git clone https://github.com/z-jensen/Random-Video-Picker.git
@@ -40,7 +70,7 @@ pip install -r requirements.txt
 python3 random_video_picker.py
 ```
 
-**Option 2: Install via pip (from GitHub)**
+**Option 4: Install via pip (from GitHub)**
 ```bash
 pip install git+https://github.com/z-jensen/Random-Video-Picker.git
 random-video-picker
@@ -109,8 +139,13 @@ To run from a USB drive:
 
 ## Documentation
 
-For detailed information, see the [public-docs/](public-docs/) folder:
+For detailed information, see the following documentation:
 
+### Installation & Launchers
+- [LAUNCHER_INSTALLATION.md](LAUNCHER_INSTALLATION.md) - Complete guide for creating desktop/start menu shortcuts
+
+### Project Documentation
+See the [public-docs/](public-docs/) folder:
 - [CONTRIBUTING.md](public-docs/CONTRIBUTING.md) - How to contribute to the project
 
 ## Changelog
@@ -126,6 +161,8 @@ random-video-picker/
 ├── video_player.py           # Cross-platform video playback
 ├── video_preview.py          # Thumbnail and metadata extraction
 ├── install_deps.py           # Dependency installation script
+├── build_executable.py       # Build standalone executables
+├── install_shortcuts.py      # Create desktop/start menu shortcuts
 ├── make_portable.bat        # Windows portable mode script
 ├── make_portable.sh         # macOS/Linux portable mode script
 ├── requirements.txt          # Python dependencies
@@ -134,6 +171,7 @@ random-video-picker/
 ├── .gitignore               # Git ignore patterns
 ├── README.md                # This file
 ├── CHANGELOG.md             # Version history
+├── LAUNCHER_INSTALLATION.md # Detailed launcher installation guide
 ├── public-docs/            # Public documentation
 │   ├── CONTRIBUTING.md
 │   ├── AGENTS.md
