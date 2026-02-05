@@ -92,13 +92,32 @@ cd /d "{script_dir}"
 pause
 """
     
-    # Create on desktop
-    desktop = os.path.join(os.path.expanduser("~"), "Desktop", "Random Video Picker.bat")
-    with open(desktop, "w", encoding="utf-8") as f:
-        f.write(batch_script)
+    # Try multiple locations for the batch file
+    desktop_paths = [
+        os.path.join(os.path.expanduser("~"), "Desktop"),
+        os.path.join(os.path.expanduser("~"), "OneDrive", "Desktop"),
+        script_dir  # Fallback to app directory
+    ]
     
-    print(f"✅ Created desktop batch script: {desktop}")
-    print("   Double-click this file to launch Random Video Picker")
+    batch_created = False
+    for desktop_path in desktop_paths:
+        try:
+            if os.path.exists(desktop_path) or desktop_path == script_dir:
+                batch_file = os.path.join(desktop_path, "Random Video Picker.bat")
+                with open(batch_file, "w", encoding="utf-8") as f:
+                    f.write(batch_script)
+                print(f"✅ Created batch script: {batch_file}")
+                print("   Double-click this file to launch Random Video Picker")
+                batch_created = True
+                break
+        except (OSError, PermissionError) as e:
+            print(f"Could not create shortcut in {desktop_path}: {e}")
+            continue
+    
+    if not batch_created:
+        print("❌ Could not create batch script in any location")
+        print("   You can manually create a batch file with the following content:")
+        print(batch_script)
 
 def create_macos_shortcuts():
     """Create macOS Applications folder shortcut and dock option"""
