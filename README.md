@@ -48,42 +48,70 @@ random-video-picker
 
 ## Portable Mode
 
-Run the app from a USB drive or portable directory without installation:
+Run the app from a USB drive or portable directory without installation.
+
+### What is Portable Mode?
+
+Portable mode saves all application data locally instead of in system folders:
+- **Normal mode**: Settings saved in your home directory
+- **Portable mode**: Settings saved in `.random_video_picker/` folder next to the app
+
+This makes it perfect for:
+- Running from USB drives
+- Keeping the app self-contained
+- Moving between different computers
+
+### How to Enable Portable Mode
+
+**Option 1: Use the provided scripts**
 
 ### On Windows
 ```bash
-# Run the make_portable.bat script
-make_portable.bat
-
-# Or create empty .portable file manually
-# Then run the app
-python random_video_picker.py
+# Run the batch script (from Command Prompt or PowerShell)
+.\make_portable.bat
 ```
 
 ### On macOS/Linux
 ```bash
-# Run the make_portable.sh script
+# Run the shell script
 ./make_portable.sh
-
-# Or create empty .portable file manually
-touch .portable
-
-# Then run the app
-python3 random_video_picker.py
 ```
 
-In portable mode, all settings and state are saved in the `.random_video_picker/` folder instead of your home folder, making it perfect for USB drives.
+**Option 2: Create the marker file manually**
+
+### On Windows
+```bash
+# Create empty .portable file
+type nul > .portable
+```
+
+### On macOS/Linux
+```bash
+# Create empty .portable file
+touch .portable
+```
+
+### How to Use Portable Mode
+
+1. **Enable it**: Run one of the commands above to create the `.portable` file
+2. **Keep the file**: The `.portable` file must remain in the same directory as the app
+3. **Run normally**: Launch the app with `python random_video_picker.py`
+4. **Data location**: All settings and recent videos will be saved in `.random_video_picker/` folder
+
+### Making it Truly Portable
+
+To run from a USB drive:
+1. Copy the entire application folder to your USB drive
+2. Run the portable mode command (or create `.portable` file)
+3. Launch the app - it will always use local storage
+
+**Note**: The `.portable` file is just a marker - it tells the app where to save data but doesn't contain any settings itself.
 
 ## Documentation
 
 For detailed information, see the [public-docs/](public-docs/) folder:
 
 - [CONTRIBUTING.md](public-docs/CONTRIBUTING.md) - How to contribute to the project
-- [AGENTS.md](public-docs/AGENTS.md) - Development context for AI assistance
-- [UI_DESIGN.md](public-docs/UI_DESIGN.md) - Complete UI/UX specifications
-- [FEATURE_SPEC.md](public-docs/FEATURE_SPEC.md) - Detailed feature specifications
-- [ARCHITECTURE.md](public-docs/ARCHITECTURE.md) - System architecture
-- [PERFORMANCE.md](public-docs/PERFORMANCE.md) - Performance optimization guidelines
 
 ## Changelog
 
