@@ -79,11 +79,6 @@ In portable mode, all settings and state are saved in the `.random_video_picker/
 For detailed information, see the [public-docs/](public-docs/) folder:
 
 - [CONTRIBUTING.md](public-docs/CONTRIBUTING.md) - How to contribute to the project
-- [AGENTS.md](public-docs/AGENTS.md) - Development context for AI assistance
-- [UI_DESIGN.md](public-docs/UI_DESIGN.md) - Complete UI/UX specifications
-- [FEATURE_SPEC.md](public-docs/FEATURE_SPEC.md) - Detailed feature specifications
-- [ARCHITECTURE.md](public-docs/ARCHITECTURE.md) - System architecture
-- [PERFORMANCE.md](public-docs/PERFORMANCE.md) - Performance optimization guidelines
 
 ## Changelog
 
