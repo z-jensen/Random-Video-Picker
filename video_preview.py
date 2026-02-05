@@ -13,9 +13,9 @@ import tkinter as tk
 # Set up logging
 logger = logging.getLogger(__name__)
 
-# Constants
-MAX_CACHE_SIZE = 50
-CACHE_EVICTION_COUNT = 25
+# Constants - Optimized for better performance
+MAX_CACHE_SIZE = 25  # Reduced from 50 for less memory usage
+CACHE_EVICTION_COUNT = 15  # Reduced accordingly
 THUMBNAIL_MAX_AGE_SECONDS = 86400  # 24 hours
 FFMPEG_TIMEOUT_SECONDS = 1
 FFPROBE_TIMEOUT_SECONDS = 2

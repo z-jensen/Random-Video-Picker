@@ -21,6 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Documentation
 - Updated README.md with simplified installation options
 - Added AGENTS.md with development commands and architecture details
+- Created PERFORMANCE_GUIDE.md with optimization tips
+- Reduced thumbnail cache size for better memory usage
 
 ## [1.1.0] - 2026-02-04
 

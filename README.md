@@ -129,6 +129,7 @@ To run from a USB drive:
 See the [public-docs/](public-docs/) folder:
 - [CONTRIBUTING.md](public-docs/CONTRIBUTING.md) - How to contribute to the project
 - [AGENTS.md](public-docs/AGENTS.md) - Development commands and architecture
+- [PERFORMANCE_GUIDE.md](PERFORMANCE_GUIDE.md) - Performance optimization guide
 
 ## Changelog
 
