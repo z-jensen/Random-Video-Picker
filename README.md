@@ -41,6 +41,56 @@ dist/RandomVideoPicker/RandomVideoPicker.exe  # Windows
 ./dist/RandomVideoPicker/RandomVideoPicker     # macOS/Linux
 ```
 
+## 📱 Moving the Executable
+
+The executable is fully portable and can be moved anywhere:
+
+### ✅ **Where You Can Move It:**
+- **Desktop** - Yes, works perfectly
+- **Another folder** - Yes, anywhere on your computer  
+- **USB drive** - Yes, makes it portable
+- **Another computer** - Yes, it's self-contained!
+
+### 📁 **How to Move:**
+Move the **entire** `dist/RandomVideoPicker/` folder, not just the exe:
+```bash
+✅ Move: dist/RandomVideoPicker/  (whole folder)
+❌ Don't move: RandomVideoPicker.exe  (just the exe)
+```
+
+The folder contains supporting files the exe needs.
+
+### 💾 **Data Storage Locations:**
+
+**Normal Mode:**
+```
+C:\Users\zjens\AppData\Roaming\RandomVideoPicker\
+├── state.json      (played videos)
+└── settings.json   (preferences)
+```
+
+**Portable Mode** (create `.portable` file in app folder):
+```
+Same folder as exe\
+└── .random_video_picker\
+    ├── state.json
+    └── settings.json
+```
+
+### 🚀 **Recommended Setup:**
+```bash
+# Move to desktop for easy access
+move "dist\RandomVideoPicker" "%USERPROFILE%\Desktop\Random Video Picker"
+
+# Run from desktop
+"%USERPROFILE%\Desktop\Random Video Picker\RandomVideoPicker.exe"
+```
+
+### 💡 **Tips:**
+- **For USB use**: Create `.portable` file to keep settings with the app
+- **For multiple computers**: Just copy the folder - no installation needed
+- **Best performance**: Keep exe on SSD storage
+
 **Option 2: Python Package**
 ```bash
 # Clone or download the repository
