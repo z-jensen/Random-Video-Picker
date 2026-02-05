@@ -31,10 +31,19 @@ $Shortcut.Save()
 '''
     
     try:
-        subprocess.run(['powershell', '-Command', powershell_script], 
-                      check=True, capture_output=True, text=True)
-        return True
-    except subprocess.CalledProcessError as e:
+        result = subprocess.run(['powershell', '-Command', powershell_script], 
+                      capture_output=True, text=True)
+        
+        if result.returncode == 0 and os.path.exists(shortcut_path):
+            print(f"✅ Successfully created: {shortcut_path}")
+            return True
+        else:
+            print(f"❌ Failed to create shortcut: {shortcut_path}")
+            print(f"PowerShell output: {result.stdout}")
+            print(f"PowerShell errors: {result.stderr}")
+            return False
+            
+    except Exception as e:
         print(f"Error creating shortcut: {e}")
         return False
 
@@ -50,6 +59,19 @@ def main():
     # Create desktop shortcut
     desktop = os.path.join(os.path.expanduser("~"), "Desktop")
     desktop_shortcut = os.path.join(desktop, "Random Video Picker.lnk")
+    
+    print(f"Looking for Desktop at: {desktop}")
+    if not os.path.exists(desktop):
+        print(f"⚠️  Desktop folder not found, checking OneDrive...")
+        # Try OneDrive Desktop
+        desktop = os.path.join(os.path.expanduser("~"), "OneDrive", "Desktop")
+        desktop_shortcut = os.path.join(desktop, "Random Video Picker.lnk")
+        print(f"Trying OneDrive Desktop at: {desktop}")
+        
+        if not os.path.exists(desktop):
+            print("⚠️  Neither Desktop nor OneDrive Desktop found. Creating in app directory.")
+            desktop = os.path.dirname(os.path.abspath(__file__))
+            desktop_shortcut = os.path.join(desktop, "Random Video Picker.lnk")
     
     if create_shortcut(target_script, desktop_shortcut):
         print(f"✅ Created desktop shortcut: {desktop_shortcut}")
