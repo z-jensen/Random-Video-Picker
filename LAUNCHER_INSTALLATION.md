@@ -15,6 +15,8 @@ python build_executable.py
 # macOS/Linux: ./create_shortcuts.sh
 ```
 
+**Note**: If you encounter PATH issues with PyInstaller, the script now uses `python -m PyInstaller` to avoid this problem.
+
 ### Option 2: Python Package Installation
 
 ```bash

@@ -22,9 +22,9 @@ def build_executable():
     # Build for current platform
     print("Building standalone executable...")
     
-    # PyInstaller command for GUI application
+    # Use python -m pyinstaller to avoid PATH issues
     cmd = [
-        "pyinstaller",
+        sys.executable, "-m", "PyInstaller",
         "--name=RandomVideoPicker",
         "--windowed",  # Hide console for GUI app
         "--onefile",   # Single executable
