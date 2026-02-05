@@ -27,21 +27,21 @@ A simple, cross-platform desktop application for randomly selecting and playing 
 
 ### Installation
 
-**Option 1: Standalone Executable (Recommended for End Users)**
+**Option 1: Standalone Executable (Recommended)**
 ```bash
 # Clone or download the repository
 git clone https://github.com/z-jensen/Random-Video-Picker.git
 cd random-video-picker
 
-# Build standalone executable (no Python required for users)
+# Build executable (fast startup, no Python required)
 python build_executable.py
 
-# Create desktop/start menu shortcuts
-# Windows: .\create_shortcuts.bat
-# macOS/Linux: ./create_shortcuts.sh
+# Run the app
+dist/RandomVideoPicker/RandomVideoPicker.exe  # Windows
+./dist/RandomVideoPicker/RandomVideoPicker     # macOS/Linux
 ```
 
-**Option 2: Python Package with Shortcuts**
+**Option 2: Python Package**
 ```bash
 # Clone or download the repository
 git clone https://github.com/z-jensen/Random-Video-Picker.git
@@ -50,27 +50,14 @@ cd random-video-picker
 # Install dependencies
 pip install -r requirements.txt
 
-# Create desktop/start menu shortcuts automatically
-python install_shortcuts.py
-
 # Run the app
-python3 random_video_picker.py
+python random_video_picker.py
+
+# Optional: Create shortcuts
+python install_shortcuts_simple.py
 ```
 
-**Option 3: Manual Python Installation**
-```bash
-# Clone or download the repository
-git clone https://github.com/z-jensen/Random-Video-Picker.git
-cd random-video-picker
-
-# Install dependencies (optional)
-pip install -r requirements.txt
-
-# Run the app
-python3 random_video_picker.py
-```
-
-**Option 4: Install via pip (from GitHub)**
+**Option 3: Install via pip**
 ```bash
 pip install git+https://github.com/z-jensen/Random-Video-Picker.git
 random-video-picker
@@ -139,14 +126,9 @@ To run from a USB drive:
 
 ## Documentation
 
-For detailed information, see the following documentation:
-
-### Installation & Launchers
-- [LAUNCHER_INSTALLATION.md](LAUNCHER_INSTALLATION.md) - Complete guide for creating desktop/start menu shortcuts
-
-### Project Documentation
 See the [public-docs/](public-docs/) folder:
 - [CONTRIBUTING.md](public-docs/CONTRIBUTING.md) - How to contribute to the project
+- [AGENTS.md](public-docs/AGENTS.md) - Development commands and architecture
 
 ## Changelog
 
@@ -156,30 +138,30 @@ See [CHANGELOG.md](CHANGELOG.md) for version history and detailed changes.
 
 ```
 random-video-picker/
-├── random_video_picker.py    # Main GUI application
-├── video_scanner.py          # Video discovery and session management
-├── video_player.py           # Cross-platform video playback
-├── video_preview.py          # Thumbnail and metadata extraction
-├── install_deps.py           # Dependency installation script
-├── build_executable.py       # Build standalone executables
-├── install_shortcuts.py      # Create desktop/start menu shortcuts
-├── make_portable.bat        # Windows portable mode script
-├── make_portable.sh         # macOS/Linux portable mode script
-├── requirements.txt          # Python dependencies
-├── setup.py                 # Package installation
-├── LICENSE                  # MIT License
-├── .gitignore               # Git ignore patterns
-├── README.md                # This file
-├── CHANGELOG.md             # Version history
-├── LAUNCHER_INSTALLATION.md # Detailed launcher installation guide
-├── public-docs/            # Public documentation
+├── random_video_picker.py       # Main GUI application
+├── video_scanner.py           # Video discovery and session management
+├── video_player.py            # Cross-platform video playback
+├── video_preview.py           # Thumbnail and metadata extraction
+├── install_deps.py            # Dependency installation script
+├── build_executable.py        # Build standalone executables
+├── install_shortcuts_simple.py # Simple shortcut creator
+├── make_portable.bat         # Windows portable mode script
+├── make_portable.sh          # macOS/Linux portable mode script
+├── requirements.txt           # Python dependencies
+├── setup.py                  # Package installation
+├── LICENSE                   # MIT License
+├── .gitignore                # Git ignore patterns
+├── README.md                 # This file
+├── CHANGELOG.md              # Version history
+├── LAUNCHER_INSTALLATION.md  # Installation guide
+├── public-docs/             # Public documentation
 │   ├── CONTRIBUTING.md
 │   ├── AGENTS.md
 │   ├── UI_DESIGN.md
 │   ├── FEATURE_SPEC.md
 │   ├── ARCHITECTURE.md
 │   └── PERFORMANCE.md
-└── private-docs/           # Private documentation (not in repo)
+└── private-docs/            # Private documentation (not in repo)
 ```
 
 ## Keyboard Shortcuts

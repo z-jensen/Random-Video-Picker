@@ -27,7 +27,9 @@ def build_executable():
         sys.executable, "-m", "PyInstaller",
         "--name=RandomVideoPicker",
         "--windowed",  # Hide console for GUI app
-        "--onefile",   # Single executable
+        "--onedir",   # Directory mode (much faster startup than --onefile)
+        "--clean",     # Clean build cache
+        "--noupx",     # Don't compress (faster startup)
         "--add-data=README.md:.",  # Include documentation
         "--add-data=LICENSE:.",    # Include license
         "--icon=icon.ico",         # Add icon if available

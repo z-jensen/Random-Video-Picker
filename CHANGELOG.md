@@ -8,22 +8,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.2.0] - 2026-02-05
 
 ### Added
-- **Cross-platform desktop shortcut support**: Added automatic creation of desktop and start menu shortcuts
-  - `build_executable.py`: PyInstaller-based standalone executable builder
-  - `install_shortcuts.py`: Cross-platform shortcut creator for Python installations
-  - `LAUNCHER_INSTALLATION.md`: Comprehensive installation guide
-  - Windows: Desktop and Start Menu shortcuts with .bat script
-  - macOS: Applications folder app bundle with drag-to-dock support
-  - Linux: .desktop files for applications menu and desktop
-- **Standalone executable distribution**: Users can now run without Python installed
-- **Enhanced documentation**: Updated README.md and all documentation files
+- **Standalone executable distribution**: Build with PyInstaller for fast startup
+- **Optimized executables**: Changed from --onefile to --onedir for much faster launch
+- **Simple shortcut creation**: Streamlined `install_shortcuts_simple.py` for basic desktop shortcuts
+- **Cross-platform builds**: Works on Windows, macOS, and Linux without Python
+
+### Improved
+- **Faster executable startup**: Optimized PyInstaller flags for better performance
+- **Simplified installation**: Streamlined options and removed complex dependency chains
+- **Cleaner documentation**: Focused on what actually matters to users
 
 ### Documentation
-- Updated README.md with new installation options and launcher instructions
-- Created comprehensive LAUNCHER_INSTALLATION.md guide
+- Updated README.md with simplified installation options
 - Added AGENTS.md with development commands and architecture details
-- Updated all project structure documentation to include new files
-- Added build and installation instructions for contributors
 
 ## [1.1.0] - 2026-02-04
 
