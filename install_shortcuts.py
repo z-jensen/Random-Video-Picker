@@ -26,7 +26,7 @@ def create_windows_shortcuts():
     except ImportError:
         print("Installing required packages for Windows shortcuts...")
         try:
-            subprocess.check_call([sys.executable, "-m", "pip", "install", "winshell pywin32"])
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "winshell", "pywin32"])
         except subprocess.CalledProcessError:
             print("Failed to install winshell/pywin32. Creating batch script instead...")
             create_batch_shortcut_script()
