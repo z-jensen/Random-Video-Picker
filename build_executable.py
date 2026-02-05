@@ -84,7 +84,7 @@ echo Start Menu: %APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Random Vid
 pause
 """
     
-    with open("create_shortcuts.bat", "w") as f:
+    with open("create_shortcuts.bat", "w", encoding="utf-8") as f:
         f.write(script)
     
     os.chmod("create_shortcuts.bat", 0o755)
@@ -145,7 +145,7 @@ echo "✅ App bundle created: $APP_NAME"
 echo "You can now drag this app to your Dock"
 """
     
-    with open("create_shortcuts.sh", "w") as f:
+    with open("create_shortcuts.sh", "w", encoding="utf-8") as f:
         f.write(script)
     
     os.chmod("create_shortcuts.sh", 0o755)
@@ -166,7 +166,7 @@ Keywords=video;random;player;media;
 """.format(os.getcwd())
     
     # Create .desktop file
-    with open("RandomVideoPicker.desktop", "w") as f:
+    with open("RandomVideoPicker.desktop", "w", encoding="utf-8") as f:
         f.write(desktop_entry)
     
     os.chmod("RandomVideoPicker.desktop", 0o755)
@@ -199,7 +199,7 @@ fi
 echo "🎉 Installation complete!"
 """
     
-    with open("install_linux.sh", "w") as f:
+    with open("install_linux.sh", "w", encoding="utf-8") as f:
         f.write(install_script)
     
     os.chmod("install_linux.sh", 0o755)

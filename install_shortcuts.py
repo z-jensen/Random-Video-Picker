@@ -107,7 +107,7 @@ def create_macos_shortcuts():
 </dict>
 </plist>"""
         
-        with open(os.path.join(contents_dir, "Info.plist"), "w") as f:
+        with open(os.path.join(contents_dir, "Info.plist"), "w", encoding="utf-8") as f:
             f.write(info_plist)
         
         # Create executable script
@@ -117,7 +117,7 @@ cd "{script_dir}"
 """
         
         launcher_path = os.path.join(macos_dir, "randomvideopicker.sh")
-        with open(launcher_path, "w") as f:
+        with open(launcher_path, "w", encoding="utf-8") as f:
             f.write(launcher_script)
         
         os.chmod(launcher_path, 0o755)
@@ -151,7 +151,7 @@ Path={script_dir}
     os.makedirs(user_apps, exist_ok=True)
     
     desktop_file = os.path.join(user_apps, "RandomVideoPicker.desktop")
-    with open(desktop_file, "w") as f:
+    with open(desktop_file, "w", encoding="utf-8") as f:
         f.write(desktop_entry)
     
     os.chmod(desktop_file, 0o755)
@@ -160,7 +160,7 @@ Path={script_dir}
     desktop_dir = os.path.expanduser("~/Desktop")
     if os.path.exists(desktop_dir):
         desktop_shortcut = os.path.join(desktop_dir, "RandomVideoPicker.desktop")
-        with open(desktop_shortcut, "w") as f:
+        with open(desktop_shortcut, "w", encoding="utf-8") as f:
             f.write(desktop_entry)
         os.chmod(desktop_shortcut, 0o755)
         print(f"✅ Linux shortcuts created:")
