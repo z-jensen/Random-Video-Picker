@@ -1,0 +1,15 @@
+# Random Video Picker - Core Dependencies
+# 
+# Install with: pip install -r requirements.txt
+# 
+# Note: The app will work without these optional dependencies, but with limited features:
+# - Pillow: Required for video thumbnails (PIL)
+# - ffmpeg: Required for video info extraction (install separately)
+#
+# ffmpeg installation:
+#   Windows: Download from https://ffmpeg.org/download.html
+#   macOS: brew install ffmpeg  
+#   Linux: sudo apt install ffmpeg
+
+# Optional dependencies
+Pillow>=9.0.0
